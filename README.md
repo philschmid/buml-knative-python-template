@@ -94,6 +94,10 @@ docker build . -t <image-name>
 docker run -d  -p internal:external <image-name>
 ```
 
+## Deplyoment 
+
+https://github.com/stefda/action-cloud-run/blob/master/entrypoint.sh
+
 ## Async await in python
 
 https://fastapi.tiangolo.com/async/
