@@ -1,0 +1,24 @@
+name: Super-Linter
+
+# Run this workflow every time a new commit pushed to your repository
+on: push
+
+jobs:
+
+  yq:
+    name: test jq commands
+    runs-on: ubuntu-latest
+    steps:
+      # Checks out a copy of your repository on the ubuntu-latest machine
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Runs the Super-Linter action
+      - name: yq - portable yaml processor
+        uses: mikefarah/yq@4.0.0-alpha2
+        with:
+          # cmd: yq w -i service.yaml metadata.name cat
+          cmd: --help
+
+      - name: cat
+        run: cat service.yaml

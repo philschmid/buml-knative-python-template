@@ -1,5 +1,10 @@
 # Template for a new Knative Python Serivce
 
+# Cloud Run documentation
+
+[How to get started with Cloud Run](./CloudRun.md)
+# Local Project Setup 
+
 ## Getting Started
 
 **git clone**
