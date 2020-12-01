@@ -1,6 +1,6 @@
 provider "google" {
-  project = "PROJECT-ID"
-  #credentials = "~/.gcloud/cloud-run-template-2bc114a998f8.json"
+  project = "cloud-run-template-297215"
+  credentials =  file("~/.gcloud/cloud-run-template-2bc114a998f8.json") 
 }
 
 resource "google_cloud_run_service" "default" {
@@ -21,7 +21,7 @@ resource "google_cloud_run_service" "default" {
         image = "gcr.io/cloudrun-hello-go/hello"
         resources {
           limits = {
-            cpu    = "500m"
+            cpu    = "1"
             memory = "512Mi"
           }
         }
