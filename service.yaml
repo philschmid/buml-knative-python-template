@@ -1,13 +1,30 @@
 apiVersion: serving.knative.dev/v1
 kind: Service
 metadata:
-  name: fastapi
-  namespace: default
+  annotations: {}
+  labels:
+    cloud.googleapis.com/location: europe-west1 # Region
+  name: hello-world # Service Name
+  namespace: '683620833623' # Project Number
 spec:
   template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: '1000'
     spec:
+      timeoutSeconds: 300
       containers:
-        - image: docker.io/philschmi/buml-1
+        - image: gcr.io/cloudrun-hello-go/hello
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 256Mi
+          ports:
+            - containerPort: 8080
           env:
             - name: TARGET
               value: 'Python Sample v1'
+
+  traffic:
+  - latestRevision: true
+    percent: 100
